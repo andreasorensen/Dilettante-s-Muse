@@ -12,9 +12,20 @@ interface ArtData {
 
 const cleanUpData = (data: ArtData) => {
   const { title, artistDisplayName, objectDate, primaryImage, primaryImageSmall } = data;
+
+  const updatedTitle = title === '' ? title : "Title unknown"
+
+  const updatedArtistName = artistDisplayName === '' ? title: 'Artist unknown'
+
+  return {
+    title: updatedTitle, 
+    artistDisplayName: updatedArtistName,
+    objectDate,
+    primaryImage: primaryImage || primaryImageSmall
+  }
 }
 
-
+console.log(cleanUpData(artData))
 
 // Generate randomID: 
 
