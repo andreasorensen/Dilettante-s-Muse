@@ -24,6 +24,8 @@ Checklist:
 - [ ]  The code is DRY. If it's not, I tried my best
 - [ ]  I reviewed my code before pushing
 
+Screenshots of any UX/UI changes:
+
 What's next?
 
 Closes Issue Number:
