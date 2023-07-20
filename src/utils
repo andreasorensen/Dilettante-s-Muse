@@ -1,0 +1,10 @@
+
+const generateID = (): number => Math.floor(Math.random() * 1000) + 1;
+
+let objectID: number = generateID()
+
+
+
+
+
+export default { generateID, objectID }
