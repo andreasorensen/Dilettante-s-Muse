@@ -1,0 +1,24 @@
+/* .nav-container {
+
+} */
+
+
+.saved-art, .home {
+  display: inline-block;
+  padding: 0.5em 1.5em;
+  text-decoration: none;
+  background-color: #800F2F;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.saved-art:hover, .home:hover {
+  background-color: #CA9B46 ;
+}
+
+.saved-art:active {
+  background-color: #004085;
+}
