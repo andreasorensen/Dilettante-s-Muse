@@ -1,8 +1,7 @@
 import './NavBar.css'
 import { NavLink } from 'react-router-dom';
 
-const NavBar = () => {
-
+const NavBar: React.FC = () => {
 
   return (
     <>
