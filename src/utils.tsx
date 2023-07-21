@@ -1,10 +1,11 @@
 
-interface ArtData {
-  title: String,
-  artistDisplayName: String, 
-  objectDate: String | Number, 
-  primaryImage?: String, 
-  primaryImageSmall?: String
+export interface ArtData {
+  id: number,
+  title: string,
+  artistDisplayName: string, 
+  objectDate: string | number, 
+  primaryImage?: string, 
+  primaryImageSmall?: string
 }
 
 // Clean up data function: 
@@ -17,6 +18,7 @@ const cleanUpData = (data: ArtData) => {
   const updatedArtistName = artistDisplayName === '' ? 'Artist unknown' : artistDisplayName;
 
   return {
+    id: objectID,
     title: updatedTitle, 
     artistDisplayName: updatedArtistName,
     objectDate,

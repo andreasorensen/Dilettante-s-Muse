@@ -17,3 +17,4 @@ const FaveButton = ({id}: Props) => {
 }
 
 export default FaveButton
+
