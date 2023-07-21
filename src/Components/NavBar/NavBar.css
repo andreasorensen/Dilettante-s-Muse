@@ -1,34 +1,37 @@
 .nav-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: start;
   align-items: center;
   padding: 0.5em;
-  /* position: sticky; */
-  top: 0;
-  background-color: #ffffff;
-  z-index: 1;
 }
-/* 
-h1 {
-  margin: 0;
-} */
+
+h1, .nav-container {
+  border: solid;
+}
+
+h1, .saved-art, .home {
+  margin-left: 1.5rem;
+}
 
 .saved-art, .home {
   display: inline-block;
   padding: 0.5em 1.5em;
-  text-decoration: none;
   background-color: #800F2F;
-  color: black;
-  border: none;
+  color: white;
+  text-decoration: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 500;
 }
 
 .saved-art:hover, .home:hover {
-  background-color: #CA9B46 ;
+  background-color: #CA9B46;
 }
 
-.saved-art:active {
-  background-color: #004085;
+.saved-art.active, .home.active {
+  background-color: #CA9B46;
+  color: black
+  
 }
