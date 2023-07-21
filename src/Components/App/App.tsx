@@ -15,19 +15,19 @@ import { generateID, cleanUpData } from '../../utils';
 //   primaryImageSmall?: String
 // }
 import { ArtData }from '../../utils'
-interface ArtPiece {
-  data: ArtData,
-  isFavorite: boolean
-}
+// interface ArtPiece {
+//   data: ArtData,
+//   isFavorite: boolean
+// }
 
 function App() {
 
 
 
-const [pieces, setPieces] = useState<ArtPiece[]>([])
+const [pieces, setPieces] = useState<ArtData[]>([])
 
 const [hasImage, setHasImage] = useState(false)
-const [savePieces, setSavePieces] = useState<ArtPiece[]>([])
+const [savePieces, setSavePieces] = useState<ArtData[]>([])
 
 //pass this all the way down again- if savedPIces array contains piece, splice it out
 
@@ -41,33 +41,31 @@ useEffect(()=> {
     getArt(generateID())
       .then(data => {
         if (data.primaryImage && data.message !== "ObjectID not found") {
-          const cleanData: any = {data: cleanUpData(data), isFavorite: false}
+          const cleanData: any = cleanUpData(data)
           console.log('DATA WITH IMAGE', cleanData)
           setPieces(prev => [...prev, cleanData])
           return cleanData
-        } else {
-          setHasImage(prev => !prev)
-          const cleanData: any = cleanUpData(data)
-          console.log('DATA WITHOUT', cleanData)
-        }
+        } else if (!data.primaryImage || data.message === "ObjectID not found") {
+          callApi()
+        } 
       })
   }
-
+console.log('pieces', pieces)
   if (pieces.length < 3) {
     callApi()
+  } else if ( pieces.length === 4) {
+    pieces.pop()
   }
-}, [hasImage, pieces])
+}, [pieces])
 
   const setSavedPieces = (id: number | string) => {
-    const foundPiece = pieces.find(piece => piece.data.objectID === id)
-    const isAlreadyFavorited = savePieces.some(piece => piece.data.objectID === id)
+    const foundPiece = pieces.find(piece => piece.objectID === id)
+    const isAlreadyFavorited = savePieces.some(piece => piece.objectID === id)
 
     if (foundPiece) {
       if (!isAlreadyFavorited) {
-        console.log('hiiii')
         setSavePieces(prev => [...prev, foundPiece])
       } else {
-        console.log('heyooooo')
         setSavePieces(prev => {
           const i = savePieces.indexOf(foundPiece)
           return prev.splice(i, 1)

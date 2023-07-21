@@ -3,21 +3,16 @@ import { ArtData }from '../../utils'
 import ArtCard from '../ArtCard/ArtCard'
 
 
-interface ArtPiece {
-  data: ArtData,
-  isFavorite: boolean
-}
-
 interface Props {
-  pieces: ArtPiece[],
-  setPieces: (value: React.SetStateAction<ArtPiece[]>) => void,
+  pieces: ArtData[],
+  setPieces: (value: React.SetStateAction<ArtData[]>) => void,
   setSavedPieces: (id: number | string) => void
 }
 
 const Homepage = ({ pieces, setPieces, setSavedPieces }: Props) => {
 
 const renderPieces = () => {
-  const allPieces = pieces.map(piece => <ArtCard key={piece.data.objectID} piece={piece} setPieces={setPieces} setSavedPieces={setSavedPieces} pieces={pieces} /> )
+  const allPieces = pieces.map(piece => <ArtCard key={piece.objectID} piece={piece} setPieces={setPieces} setSavedPieces={setSavedPieces} pieces={pieces} /> )
   return allPieces.slice(0, 3)
 }
 

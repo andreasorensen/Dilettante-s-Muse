@@ -3,17 +3,13 @@ import './ArtCard.css';
 import FaveButton from '../FaveButton/FaveButton';
 import { ArtData }from '../../utils'
 
-interface ArtPiece {
-  data: ArtData,
-  isFavorite: boolean
-}
 
 interface Props {
   // id: number | string,
-  pieces: ArtPiece[],
-  setPieces: (value: React.SetStateAction<ArtPiece[]>) => void,
+  pieces: ArtData[],
+  setPieces: (value: React.SetStateAction<ArtData[]>) => void,
   setSavedPieces: (id: number | string) => void, 
-  piece: ArtPiece
+  piece: ArtData
 }
 
 const ArtCard = ({pieces, setPieces, setSavedPieces, piece}: Props) => {
@@ -22,7 +18,7 @@ const ArtCard = ({pieces, setPieces, setSavedPieces, piece}: Props) => {
 
   return (
     <div className='art-card'>
-      <p>{piece.data.title}</p>
+      <p>{piece.title}</p>
       <FaveButton piece={piece} setSavedPieces={setSavedPieces} setPieces={setPieces} artPiece={artPiece} pieces={pieces} setArtPiece={setArtPiece } />
     </div>
   )
