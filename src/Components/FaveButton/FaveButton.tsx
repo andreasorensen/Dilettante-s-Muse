@@ -3,11 +3,8 @@ import './FaveButton.css';
 import notFave from '../../images/notsaved.png';
 import fave from '../../images/saved.png';
 import { ArtData }from '../../utils';
-import { set } from 'cypress/types/lodash';
-
 
 interface Props {
-  // id: number | string,
   pieces: ArtData[],
   setPieces: (value: React.SetStateAction<ArtData[]>) => void,
   setArtPiece: React.Dispatch<React.SetStateAction<boolean>>,

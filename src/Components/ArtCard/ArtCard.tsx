@@ -5,7 +5,6 @@ import { ArtData }from '../../utils'
 
 
 interface Props {
-  // id: number | string,
   pieces: ArtData[],
   setPieces: (value: React.SetStateAction<ArtData[]>) => void,
   setSavedPieces: (id: number | string) => void, 
