@@ -11,37 +11,35 @@ interface ArtPiece {
 }
 
 interface Props {
-  id: number | string,
+  // id: number | string,
   pieces: ArtPiece[],
   setPieces: (value: React.SetStateAction<ArtPiece[]>) => void,
   setArtPiece: React.Dispatch<React.SetStateAction<boolean>>,
   artPiece: boolean,
-  setSavedPieces: React.Dispatch<React.SetStateAction<ArtPiece[]>>
+  setSavedPieces: (id: number | string) => void,
+  piece: ArtPiece
 }
 
-const FaveButton = ({id, pieces, setPieces, setArtPiece, artPiece, setSavedPieces}: Props) => {
+const FaveButton = ({piece, pieces, setPieces, setArtPiece, artPiece, setSavedPieces}: Props) => {
 
   const toggleFave = (e: React.MouseEvent<HTMLImageElement, MouseEvent>) => {
-    const id = (e.target as HTMLInputElement).id;
-    pieces.forEach(piece => {
-      if (piece.data.id === parseInt(id)) {
-        const index = pieces.indexOf(piece)
-        setPieces(prev => {
-          prev[index].isFavorite = !prev[index].isFavorite
-          return prev
-        })
-        console.log('prev', piece.isFavorite)
-        setArtPiece(prev => !prev)
-        setSavedPieces(prev => [...prev, piece])
-      }
+    // const id = (e.target as HTMLInputElement).id;
+
+    const index = pieces.indexOf(piece)
+    setPieces(prev => {
+      prev[index].isFavorite = !prev[index].isFavorite
+      return prev
     })
+    console.log('prev', piece.isFavorite)
+    setArtPiece(prev => !prev)
+    setSavedPieces(piece.data.objectID)
   }
 
   return (
     <div>
       {artPiece ? 
-      <img className='fave-icon' id={`${id}`} onClick={(e) => {toggleFave(e)}} src={fave} />
-      :<img className='fave-icon' id={`${id}`} onClick={(e) => {toggleFave(e)}} src={notFave} />}
+      <img className='fave-icon' onClick={(e) => {toggleFave(e)}} src={fave} />
+      :<img className='fave-icon' onClick={(e) => {toggleFave(e)}} src={notFave} />}
     </div>
   )
 }

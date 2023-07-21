@@ -9,19 +9,21 @@ interface ArtPiece {
 }
 
 interface Props {
-  id: number | string,
+  // id: number | string,
   pieces: ArtPiece[],
   setPieces: (value: React.SetStateAction<ArtPiece[]>) => void,
-  setSavedPieces: React.Dispatch<React.SetStateAction<ArtPiece[]>>
+  setSavedPieces: (id: number | string) => void, 
+  piece: ArtPiece
 }
 
-const ArtCard = ({id, pieces, setPieces, setSavedPieces}: Props) => {
+const ArtCard = ({pieces, setPieces, setSavedPieces, piece}: Props) => {
 
   const [artPiece, setArtPiece ] = useState(false)
 
   return (
     <div className='art-card'>
-      <FaveButton setSavedPieces={setSavedPieces} setPieces={setPieces} artPiece={artPiece} pieces={pieces} setArtPiece={setArtPiece } id={id} />
+      <p>{piece.data.title}</p>
+      <FaveButton piece={piece} setSavedPieces={setSavedPieces} setPieces={setPieces} artPiece={artPiece} pieces={pieces} setArtPiece={setArtPiece } />
     </div>
   )
 }

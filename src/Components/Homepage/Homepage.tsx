@@ -11,14 +11,21 @@ interface ArtPiece {
 interface Props {
   pieces: ArtPiece[],
   setPieces: (value: React.SetStateAction<ArtPiece[]>) => void,
-  setSavedPieces: React.Dispatch<React.SetStateAction<ArtPiece[]>>
+  setSavedPieces: (id: number | string) => void
 }
 
 const Homepage = ({ pieces, setPieces, setSavedPieces }: Props) => {
 
+const renderPieces = () => {
+  const allPieces = pieces.map(piece => <ArtCard key={piece.data.objectID} piece={piece} setPieces={setPieces} setSavedPieces={setSavedPieces} pieces={pieces} /> )
+  return allPieces.slice(0, 3)
+}
+
   return (
-    <div>Homepage
-      {pieces.map(piece => <ArtCard key={piece.data.id} setPieces={setPieces} setSavedPieces={setSavedPieces} pieces={pieces} id={piece.data.id}/> )}
+    <div>
+      Homepage
+      {renderPieces()}
+      {pieces. length < 3 && <p>Error loading pieces, please refresh the page!</p>}
     </div>
   )
 }

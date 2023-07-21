@@ -1,6 +1,6 @@
 
 export interface ArtData {
-  id: number,
+  objectID: number,
   title: string,
   artistDisplayName: string, 
   objectDate: string | number, 
@@ -11,14 +11,14 @@ export interface ArtData {
 // Clean up data function: 
 
 const cleanUpData = (data: ArtData) => {
-  const { title, artistDisplayName, objectDate, primaryImage, primaryImageSmall } = data;
+  const { title, artistDisplayName, objectID, objectDate, primaryImage, primaryImageSmall } = data;
 
   const updatedTitle = title === '' ? "Title unknown" : title
 
   const updatedArtistName = artistDisplayName === '' ? 'Artist unknown' : artistDisplayName;
 
   return {
-    id: objectID,
+    objectID,
     title: updatedTitle, 
     artistDisplayName: updatedArtistName,
     objectDate,
@@ -30,9 +30,9 @@ const cleanUpData = (data: ArtData) => {
 
 const generateID = (): number => Math.floor(Math.random() * 1000) + 1;
 
-let objectID: number = generateID()
+// let objectID: number = generateID()
 
 // (( We don't have to use the objectID variable, we can always call the generateID function within the API call itself, or move this variable ))
 
 
-export { cleanUpData, generateID, objectID }
+export { cleanUpData, generateID }
