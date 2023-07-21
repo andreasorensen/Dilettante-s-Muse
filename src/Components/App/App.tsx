@@ -8,10 +8,10 @@ const App: React.FC = () => {
   return (
     <>
       <NavBar />
-      <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/saved" element={<SavedPage />} />
-      </Routes>
+      {/* <Routes> */}
+        {/* <Route path="/" element={<Homepage />} /> */}
+        {/* <Route path="/saved" element={<SavedPage />} /> */}
+      {/* </Routes> */}
     </>
   );
 };

@@ -9,11 +9,11 @@ h1, .nav-container {
   border: solid;
 }
 
-h1, .saved-art, .home {
+h1, .saved-art, .home-page {
   margin-left: 1.5rem;
 }
 
-.saved-art, .home {
+.saved-art, .home-page {
   display: inline-block;
   padding: 0.5em 1.5em;
   background-color: #800F2F;
@@ -26,11 +26,11 @@ h1, .saved-art, .home {
   font-weight: 500;
 }
 
-.saved-art:hover, .home:hover {
+.saved-art:hover, .home-page:hover {
   background-color: #CA9B46;
 }
 
-.saved-art.active, .home.active {
+.saved-art.active, .home-page.active {
   background-color: #CA9B46;
   color: black
   
