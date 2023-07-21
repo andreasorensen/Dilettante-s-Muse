@@ -1,10 +1,11 @@
 import "./App.css";
-import ArtCard from "../ArtCard/ArtCard";
 import React from "react";
 import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import Homepage from "../Homepage/Homepage";
 import { generateID, cleanUpData, ArtData} from "../../utils";
+import SavedPage from '../SavedPage/SavedPage';
+import NavBar from '../NavBar/NavBar';
 
 function App() {
   const [pieces, setPieces] = useState<ArtData[]>([]);
@@ -64,13 +65,17 @@ function App() {
 
   return (
     <div className="App">
-      <Homepage
+      <NavBar />
+      <Routes> 
+      <Route path="/" element={<Homepage
         pieces={pieces}
         setPieces={setPieces}
         setSavedPieces={setSavedPieces}
-      />
+        />} /> 
+        <Route path="/saved" element={<SavedPage />} /> 
+       </Routes>
     </div>
   );
-}
+};
 
 export default App;
