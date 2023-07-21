@@ -1,9 +1,14 @@
+import './NavBar.css'
 
 const NavBar = () => {
 
 
   return (
-    <div>NavBar</div>
+    <>
+      <nav className='nav-container'>
+        <h1>Dilettante's Muse</h1>
+      </nav>
+    </>
   )
 }
 
