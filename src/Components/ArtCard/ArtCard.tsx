@@ -13,16 +13,19 @@ interface Props {
 
 const ArtCard: React.FC<Props> = ({pieces, setPieces, setSavedPieces, piece}: Props) => {
 
-  const [artPiece, setArtPiece ] = useState(false)
+  const [isFavorited, setIsFavorited ] = useState(false)
 
   return (
     <div className='art-card'>
-      <div className='image-container'></div>
-      <img className='image' src={piece.primaryImage} alt={piece.title}/>
-      <p className='title'>{piece.title}</p>
-      <p className='artist'>{piece.artistDisplayName}</p>
-      <p className='date'>{piece.objectDate}</p>
-      <FaveButton piece={piece} setSavedPieces={setSavedPieces} setPieces={setPieces} artPiece={artPiece} pieces={pieces} setArtPiece={setArtPiece } />
+      <div className='image-container'>
+        <img className='image' src={piece.primaryImage} alt={piece.title}/>
+        <FaveButton piece={piece} setSavedPieces={setSavedPieces} setPieces={setPieces} artPiece={isFavorited} pieces={pieces} setArtPiece={setIsFavorited } />
+      </div>
+      <div className='details-container'>
+        <p className='title'>{piece.title}</p>
+        <p className='artist'>{piece.artistDisplayName}</p>
+        <p className='date'>{piece.objectDate}</p>
+      </div>
     </div>
   )
 }
