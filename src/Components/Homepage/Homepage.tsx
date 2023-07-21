@@ -2,24 +2,23 @@ import React from 'react'
 import { ArtData }from '../../utils'
 import ArtCard from '../ArtCard/ArtCard'
 
+
 interface ArtPiece {
   data: ArtData,
   isFavorite: boolean
 }
 
-
 interface Props {
-  piece1: ArtPiece,
-  piece2: ArtPiece,
-  piece3: ArtPiece
+  pieces: ArtPiece[],
+  setPieces: (value: React.SetStateAction<ArtPiece[]>) => void,
+  setSavedPieces: React.Dispatch<React.SetStateAction<ArtPiece[]>>
 }
 
-const Homepage = ({piece1, piece2, piece3}: Props) => {
+const Homepage = ({ pieces, setPieces, setSavedPieces }: Props) => {
+
   return (
     <div>Homepage
-      <ArtCard id={piece1.data.id}/>
-      <ArtCard id={piece2.data.id}/>
-      <ArtCard id={piece3.data.id}/>
+      {pieces.map(piece => <ArtCard key={piece.data.id} setPieces={setPieces} setSavedPieces={setSavedPieces} pieces={pieces} id={piece.data.id}/> )}
     </div>
   )
 }
