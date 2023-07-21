@@ -1,5 +1,5 @@
 
-interface ArtData {
+export interface ArtData {
   title: String,
   artistDisplayName: String, 
   objectDate: String | Number, 
