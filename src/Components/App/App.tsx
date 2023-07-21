@@ -1,7 +1,7 @@
 import './App.css';
 import ArtCard from '../ArtCard/ArtCard';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Homepage from '../Homepage/Homepage';
 
@@ -61,12 +61,50 @@ const [piece3, setPiece3] = useState<ArtPiece>(
       isFavorite: false
 })
 
-//piece1.isFavorite ? "fave" : "notFave"
+const [pieces, setPieces] = useState<ArtPiece[]>([
+  {
+    data: 
+      { 
+      id: 1,
+      title: "This Test", 
+      artistDisplayName: "Test",
+      objectDate: 1999,
+      primaryImage: "https://images.metmuseum.org/CRDImages/ad/web-large/52601.jpg" 
+      },
+      isFavorite: false
+},
+{
+  data: 
+    { 
+    id: 2,
+    title: "This Test", 
+    artistDisplayName: "Test",
+    objectDate: 1999,
+    primaryImage: "https://images.metmuseum.org/CRDImages/ad/web-large/52601.jpg" 
+    },
+    isFavorite: false
+},
+{
+  data: 
+    { 
+    id: 3,
+    title: "This Test", 
+    artistDisplayName: "Test",
+    objectDate: 1999,
+    primaryImage: "https://images.metmuseum.org/CRDImages/ad/web-large/52601.jpg" 
+    },
+    isFavorite: false
+}
+])
  
+const [savedPieces, setSavedPieces] = useState<ArtPiece[]>([])
+console.log(savedPieces)
+//pass this all the way down again- if savedPIces array contains piece, splice it out
+
   return (
     <>
     <Routes>
-      <Route path='/' element={<Homepage piece1={piece1} piece2={piece1} piece3={piece1}/>} />
+      <Route path='/' element={<Homepage pieces={pieces} setSavedPieces={setSavedPieces} setPieces={setPieces} />} />
     </Routes>
     <div className="App">
     </div>
