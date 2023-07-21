@@ -1,11 +1,12 @@
 import './NavBar.css'
 import { NavLink } from 'react-router-dom';
+import logo from '../../images/logo.png'
 
 const NavBar: React.FC = () => {
   return (
     <>
       <nav className='nav-container'>
-        <h1>Dilettante's Muse</h1>
+        <img className='logo' src={logo} alt="logo"/>
         <NavLink to="/" className="home-page">Home</NavLink>
         <NavLink to="/saved" className="saved-art">Saved Art</NavLink>
       </nav>
