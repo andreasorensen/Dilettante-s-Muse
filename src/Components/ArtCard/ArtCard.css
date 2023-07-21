@@ -1,11 +1,29 @@
+.art-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
 .art-card {
   width: 400px;
   height: 400px;
   border: 1px solid black;
-  margin-bottom: 250px;
+  margin-bottom: 20px;
+}
+
+.image-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .image {
-  height: 25rem;
-  width: 25rem;
+  height: 15rem;
+  width: 15rem;
+}
+
+.details-container {
+  padding: 10px;
+  text-align: center;
 }

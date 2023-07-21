@@ -23,7 +23,7 @@ const Homepage = ({ pieces, setPieces, setSavedPieces }: Props) => {
   };
 
   return (
-    <div>
+    <div className="art-cards-container">
       Homepage
       {renderPieces()}
       {pieces.length < 3 && (
