@@ -2,7 +2,6 @@ import './NavBar.css'
 import { NavLink } from 'react-router-dom';
 
 const NavBar: React.FC = () => {
-
   return (
     <>
       <nav className='nav-container'>

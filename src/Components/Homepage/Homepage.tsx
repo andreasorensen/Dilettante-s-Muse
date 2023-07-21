@@ -1,9 +1,36 @@
-import React from 'react'
+import React from "react";
+import { ArtData } from "../../utils";
+import ArtCard from "../ArtCard/ArtCard";
 
-const Homepage = () => {
-  return (
-    <div>Homepage</div>
-  )
+interface Props {
+  pieces: ArtData[];
+  setPieces: (value: React.SetStateAction<ArtData[]>) => void;
+  setSavedPieces: (id: number | string) => void;
 }
 
-export default Homepage
+const Homepage = ({ pieces, setPieces, setSavedPieces }: Props) => {
+  const renderPieces = () => {
+    const allPieces = pieces.map((piece) => (
+      <ArtCard
+        key={piece.objectID}
+        piece={piece}
+        setPieces={setPieces}
+        setSavedPieces={setSavedPieces}
+        pieces={pieces}
+      />
+    ));
+    return allPieces.slice(0, 3);
+  };
+
+  return (
+    <div>
+      Homepage
+      {renderPieces()}
+      {pieces.length < 3 && (
+        <p>Error loading pieces, please refresh the page!</p>
+      )}
+    </div>
+  );
+};
+
+export default Homepage;
