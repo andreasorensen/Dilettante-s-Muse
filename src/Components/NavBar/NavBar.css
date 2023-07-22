@@ -25,7 +25,7 @@
   font-weight: 500;
   font-size: 1rem;
   text-align: center;
-  width: 20%;
+  width: 10%;
 }
 
 .saved-art:hover, .home-page:hover {
@@ -59,11 +59,13 @@
     position: fixed;
     top: 0;
     left: 30px;
+    width: 20%;
   }
 
   .home-page {
     position: fixed;
     top: 0;
     right: 30px;
+    width: 20%;
   }
 }
