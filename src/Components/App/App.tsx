@@ -10,6 +10,11 @@ import NavBar from '../NavBar/NavBar';
 function App() {
   const [pieces, setPieces] = useState<ArtData[]>([]);
   const [savePieces, setSavePieces] = useState<ArtData[]>([]);
+  const [clicked, setClicked] = useState<boolean>(false)
+
+  useEffect(() => {
+    console.log("clicked", clicked)
+  }, [clicked])
 
   const getArt = (objectID: number) => {
     console.log(" obj ID", objectID);
@@ -53,7 +58,15 @@ function App() {
       } else {
         setSavePieces((prev) => {
           const i = savePieces.indexOf(foundPiece);
-          return prev.splice(i, 1);
+          const copy = [...prev]
+          //we were trying to mutate the current state inititally
+          // to get aroun we just create a copy of the current state
+          //so we can muate teh copy an then returning the copy to set to the 
+          //new state
+          console.log("copy before splice", copy)
+          copy.splice(i,1);
+          console.log("copy", copy)
+          return copy
         });
       }
     }
@@ -65,14 +78,14 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar />
+      <NavBar setPieces={setPieces} />
       <Routes> 
       <Route path="/" element={<Homepage
         pieces={pieces}
         setPieces={setPieces}
         setSavedPieces={setSavedPieces}
         />} /> 
-        <Route path="/saved" element={<SavedPage savePieces={savePieces}/>} /> 
+        <Route path="/saved" element={<SavedPage setPieces={setPieces} setSavedPieces={setSavedPieces} savePieces={savePieces} />} /> 
        </Routes>
     </div>
   );

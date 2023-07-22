@@ -12,13 +12,15 @@ interface Props {
 }
 
 const ArtCard = ({pieces, setPieces, setSavedPieces, piece}: Props) => {
-
-  const [artPiece, setArtPiece ] = useState(false)
+//useLocation if on saved page 
+// const location = useLocation()
+//if location.pathname.includea("saved")
+  const [isFavorited, setisFavorited ] = useState(false)
 
   return (
     <div className='art-card'>
       <p>{piece.title}</p>
-      <FaveButton piece={piece} setSavedPieces={setSavedPieces} setPieces={setPieces} artPiece={artPiece} pieces={pieces} setArtPiece={setArtPiece } />
+      <FaveButton piece={piece} setSavedPieces={setSavedPieces} setPieces={setPieces} isFavorited={isFavorited} pieces={pieces} setisFavorited={setisFavorited } />
     </div>
   )
 }

@@ -1,13 +1,36 @@
-import React from 'react'
-import { ArtData }from '../../utils';
-interface Props{
-  savePieces: ArtData[]
-}
-const SavedPage = ({ savePieces }: Props) => {
-  console.log("savePiecesssss", savePieces)
-  return (
-    <div>SavedPage</div>
-  )
-}
+import React from "react";
+import { ArtData } from "../../utils";
+import ArtCard from "../ArtCard/ArtCard";
 
-export default SavedPage
+interface Props {
+  savePieces: ArtData[];
+  setPieces: (value: React.SetStateAction<ArtData[]>) => void;
+  setSavedPieces: (id: number | string) => void;
+}
+const SavedPage: React.FC<Props> = ({
+  savePieces,
+  setPieces,
+  setSavedPieces,
+}) => {
+  const renderSavedPieces = () => {
+    return savePieces.map((piece) => {
+      return (
+        <ArtCard
+          key={piece.objectID}
+          piece={piece}
+          setPieces={setPieces}
+          setSavedPieces={setSavedPieces}
+          pieces={savePieces}
+        />
+      );
+    });
+  };
+
+  return (
+    <div>
+      {!savePieces.length ? <h1>There are no saved pieces</h1> : renderSavedPieces()}
+    </div>
+  );
+};
+
+export default SavedPage;
