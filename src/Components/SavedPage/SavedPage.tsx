@@ -1,6 +1,10 @@
 import React from 'react'
-
-const SavedPage = () => {
+import { ArtData }from '../../utils';
+interface Props{
+  savePieces: ArtData[]
+}
+const SavedPage = ({ savePieces }: Props) => {
+  console.log("savePiecesssss", savePieces)
   return (
     <div>SavedPage</div>
   )

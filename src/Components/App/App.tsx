@@ -72,7 +72,7 @@ function App() {
         setPieces={setPieces}
         setSavedPieces={setSavedPieces}
         />} /> 
-        <Route path="/saved" element={<SavedPage />} /> 
+        <Route path="/saved" element={<SavedPage savePieces={savePieces}/>} /> 
        </Routes>
     </div>
   );
