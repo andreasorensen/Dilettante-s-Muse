@@ -2,25 +2,25 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  position: relative;
 }
 
 .art-card {
-  width: 400px;
-  height: 400px;
+  width: 300px;
+  height: 360px;
   border: 1px solid black;
   margin-bottom: 20px;
+  position: relative;
 }
 
 .image-container {
   flex: 1;
-  display: flex;
-  align-items: center;
   justify-content: center;
 }
 
 .image {
-  height: 15rem;
-  width: 15rem;
+  height: 18rem;
+  width: 18rem;
 }
 
 .details-container {

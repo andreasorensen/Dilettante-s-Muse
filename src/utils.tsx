@@ -8,6 +8,10 @@ export interface ArtData {
   primaryImageSmall?: string
 }
 
+type Data = {
+  objectIDs: number[];
+};
+
 // Clean up data function: 
 
 const cleanUpData = (data: ArtData) => {
@@ -30,4 +34,14 @@ const cleanUpData = (data: ArtData) => {
 
 const generateID = (): number => Math.floor(Math.random() * 1000) + 1;
 
+// const getRandomObjectID = (data: Data): number | null => {
+//   const { objectIDs } = data;
+//   if (!objectIDs || objectIDs.length === 0) return null;
+
+//   const randomIndex = Math.floor(Math.random() * objectIDs.length);
+//   return objectIDs[randomIndex];
+// }
+
 export { cleanUpData, generateID }
+
+// export { cleanUpData, getRandomObjectID }

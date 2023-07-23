@@ -30,4 +30,7 @@ const ArtCard: React.FC<Props> = ({pieces, setPieces, setSavedPieces, piece}: Pr
   )
 }
 
+
+// add <> to return, then add the image below & and allow the entire art card to be behind it, by putting 
+
 export default ArtCard
