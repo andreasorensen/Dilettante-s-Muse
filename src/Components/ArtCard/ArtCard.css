@@ -5,12 +5,30 @@
   position: relative;
 }
 
+.art-frame {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 380px;
+  height: 380px;
+}
+
+
+.frame-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #800F2F;
+}
+
 .art-card {
   width: 300px;
   height: 360px;
   border: 1px solid black;
   margin-bottom: 20px;
   position: relative;
+  z-index: 1
 }
 
 .image-container {
@@ -19,8 +37,8 @@
 }
 
 .image {
-  height: 18rem;
-  width: 18rem;
+  height: 200px;
+  width: 200px;
 }
 
 .details-container {
