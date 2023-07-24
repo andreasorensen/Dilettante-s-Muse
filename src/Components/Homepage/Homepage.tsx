@@ -24,7 +24,7 @@ const Homepage = ({ pieces, setPieces, setSavedPieces }: Props) => {
   };
 
   return (
-    <div className="homepage">
+    <div className="art-cards-container">
       {renderPieces()}
       {pieces.length < 3 && (
         <p>Error loading pieces, please refresh the page!</p>

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import Homepage from "../Homepage/Homepage";
 import { generateID, cleanUpData, ArtData} from "../../utils";
+// import { Data, getRandomObjectID, cleanUpData, ArtData } from "../..utils"
 import SavedPage from '../SavedPage/SavedPage';
 import NavBar from '../NavBar/NavBar';
 
@@ -40,6 +41,18 @@ function App() {
       pieces.pop();
     }
   }, [pieces]);
+
+  // const [objectID, setRandomObjectID] = useState<Data | null>(null);
+  
+  // const generateID = () => {
+  //   useEffect(() => {
+  //       if (data) {
+  //         const randomID = getRandomObjectID(data);
+  //         setRandomObjectID(randomID);
+  //       }
+  //     }, [data]);
+  // }
+
 
   const setSavedPieces = (id: number | string) => {
     const foundPiece = pieces.find((piece) => piece.objectID === id);
