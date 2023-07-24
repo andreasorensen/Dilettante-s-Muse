@@ -6,23 +6,21 @@ import Homepage from "../Homepage/Homepage";
 import { generateID, cleanUpData, ArtData } from "../../utils";
 import SavedPage from "../SavedPage/SavedPage";
 import NavBar from "../NavBar/NavBar";
+import { getArt, getIDs } from "../../apiCalls";
 
 
 function App() {
   const [pieces, setPieces] = useState<ArtData[]>([]);
   const [savePieces, setSavePieces] = useState<ArtData[]>([]);
 
-  const getArt = (objectID: number) => {
-    return fetch(
-      `https://collectionapi.metmuseum.org/public/collection/v1/objects/${objectID}`
-    ).then((res) => res.json());
-  };
-
   useEffect(() => {
-    const callApi = () => {
-      getArt(generateID()).then((data) => {
+    const callApi = async () => {
+      const ids = await getIDs()
+      ids.forEach(id => 
+      getArt(id).then((data) => {
         if (data.primaryImage && data.message !== "ObjectID not found") {
           const cleanData: any = cleanUpData(data);
+          // console.log("DATA WITH IMAGE", cleanData);
           setPieces((prev) => [...prev, cleanData]);
           return cleanData;
         } else if (
@@ -31,16 +29,16 @@ function App() {
         ) {
           callApi();
         }
-      });
+      })
+      )
     };
-
+    // console.log("pieces", pieces);
     if (pieces.length < 3) {
       callApi();
     } else if (pieces.length === 4) {
       pieces.pop();
     }
   }, [pieces]);
-
 
   const setSavedPieces = (piece: ArtData) => {
     const isAlreadyFavorited = savePieces.some(
