@@ -3,27 +3,26 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import Homepage from "../Homepage/Homepage";
-import { generateID, cleanUpData, ArtData} from "../../utils";
-// import { Data, getRandomObjectID, cleanUpData, ArtData } from "../..utils"
-import SavedPage from '../SavedPage/SavedPage';
-import NavBar from '../NavBar/NavBar';
+import { generateID, cleanUpData, ArtData } from "../../utils";
+import SavedPage from "../SavedPage/SavedPage";
+import NavBar from "../NavBar/NavBar";
+
 
 function App() {
   const [pieces, setPieces] = useState<ArtData[]>([]);
   const [savePieces, setSavePieces] = useState<ArtData[]>([]);
 
   const getArt = (objectID: number) => {
-    console.log(" obj ID", objectID);
     return fetch(
       `https://collectionapi.metmuseum.org/public/collection/v1/objects/${objectID}`
     ).then((res) => res.json());
   };
+
   useEffect(() => {
     const callApi = () => {
       getArt(generateID()).then((data) => {
         if (data.primaryImage && data.message !== "ObjectID not found") {
           const cleanData: any = cleanUpData(data);
-          console.log("DATA WITH IMAGE", cleanData);
           setPieces((prev) => [...prev, cleanData]);
           return cleanData;
         } else if (
@@ -34,7 +33,7 @@ function App() {
         }
       });
     };
-    console.log("pieces", pieces);
+
     if (pieces.length < 3) {
       callApi();
     } else if (pieces.length === 4) {
@@ -42,57 +41,44 @@ function App() {
     }
   }, [pieces]);
 
-  // const [objectID, setRandomObjectID] = useState<Data | null>(null);
-  
-  // const generateID = () => {
-  //   useEffect(() => {
-  //       if (data) {
-  //         const randomID = getRandomObjectID(data);
-  //         setRandomObjectID(randomID);
-  //       }
-  //     }, [data]);
-  // }
 
-
-  const setSavedPieces = (id: number | string) => {
-    const foundPiece = pieces.find((piece) => piece.objectID === id);
+  const setSavedPieces = (piece: ArtData) => {
     const isAlreadyFavorited = savePieces.some(
-      (piece) => piece.objectID === id
+      (pie) => pie.objectID === piece.objectID
     );
-
-    if (foundPiece) {
-      if (!isAlreadyFavorited) {
-        setSavePieces((prev) => [...prev, foundPiece]);
-      } else {
-        setSavePieces((prev) => {
-          const i = savePieces.indexOf(foundPiece);
-          const newprev = [...prev]
-          newprev.splice(i, 1);
-          console.log('prevfffff', newprev)
-          return newprev
-        });
+    if (!isAlreadyFavorited) {
+      setSavePieces((prev) => [...prev, piece]);
+    } else {
+      setSavePieces((prev) => {
+        const i = savePieces.indexOf(piece);
+        const copy = [...prev];
+        copy.splice(i, 1);
+        return copy;
           
-      }
+      })
     }
   };
 
-  useEffect(() => {
-    console.log("saved", savePieces);
-  }, [savePieces]);
-
   return (
     <div className="App">
-      <NavBar />
-      <Routes> 
-      <Route path="/" element={<Homepage
-        pieces={pieces}
-        setPieces={setPieces}
-        setSavedPieces={setSavedPieces}
-        />} /> 
-        <Route path="/saved" element={<SavedPage />} /> 
-       </Routes>
+      <NavBar setPieces={setPieces} />
+      <Routes>
+        <Route
+          path="/"
+          element={<Homepage pieces={pieces} setSavedPieces={setSavedPieces} />}
+        />
+        <Route
+          path="/saved"
+          element={
+            <SavedPage
+              setSavedPieces={setSavedPieces}
+              savePieces={savePieces}
+            />
+          }
+        />
+      </Routes>
     </div>
   );
-};
+}
 
 export default App;

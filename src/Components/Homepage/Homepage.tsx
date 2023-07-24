@@ -5,19 +5,16 @@ import './Homepage.css'
 
 interface Props {
   pieces: ArtData[];
-  setPieces: (value: React.SetStateAction<ArtData[]>) => void;
-  setSavedPieces: (id: number | string) => void;
+  setSavedPieces: (piece: ArtData) => void;
 }
 
-const Homepage = ({ pieces, setPieces, setSavedPieces }: Props) => {
+const Homepage = ({ pieces, setSavedPieces }: Props) => {
   const renderPieces = () => {
     const allPieces = pieces.map((piece) => (
       <ArtCard
         key={piece.objectID}
         piece={piece}
-        setPieces={setPieces}
         setSavedPieces={setSavedPieces}
-        pieces={pieces}
       />
     ));
     return allPieces.slice(0, 3);
@@ -26,9 +23,7 @@ const Homepage = ({ pieces, setPieces, setSavedPieces }: Props) => {
   return (
     <div className="art-cards-container">
       {renderPieces()}
-      {pieces.length < 3 && (
-        <p>Error loading pieces, please refresh the page!</p>
-      )}
+      {pieces.length < 3 && <p className="loading-text">Loading...</p>}
     </div>
   );
 };
