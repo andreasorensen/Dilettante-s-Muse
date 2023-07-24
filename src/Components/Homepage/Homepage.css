@@ -1,0 +1,10 @@
+.homepage {
+  background-color: #800F2F;
+  z-index: -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 100vh;
+  font-family: 'Brygada 1918', serif;
+  color: white;
+}
