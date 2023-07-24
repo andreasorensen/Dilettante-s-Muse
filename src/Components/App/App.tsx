@@ -7,6 +7,7 @@ import { generateID, cleanUpData, ArtData } from "../../utils";
 import SavedPage from "../SavedPage/SavedPage";
 import NavBar from "../NavBar/NavBar";
 
+
 function App() {
   const [pieces, setPieces] = useState<ArtData[]>([]);
   const [savePieces, setSavePieces] = useState<ArtData[]>([]);
@@ -40,6 +41,7 @@ function App() {
     }
   }, [pieces]);
 
+
   const setSavedPieces = (piece: ArtData) => {
     const isAlreadyFavorited = savePieces.some(
       (pie) => pie.objectID === piece.objectID
@@ -52,7 +54,8 @@ function App() {
         const copy = [...prev];
         copy.splice(i, 1);
         return copy;
-      });
+          
+      })
     }
   };
 

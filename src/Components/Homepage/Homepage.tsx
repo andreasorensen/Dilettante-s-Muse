@@ -1,6 +1,7 @@
 import React from "react";
 import { ArtData } from "../../utils";
 import ArtCard from "../ArtCard/ArtCard";
+import './Homepage.css'
 
 interface Props {
   pieces: ArtData[];
@@ -20,10 +21,9 @@ const Homepage = ({ pieces, setSavedPieces }: Props) => {
   };
 
   return (
-    <div>
-      Homepage
+    <div className="art-cards-container">
       {renderPieces()}
-      {pieces.length < 3 && <p>Loading...</p>}
+      {pieces.length < 3 && <p className="loading-text">Loading...</p>}
     </div>
   );
 };

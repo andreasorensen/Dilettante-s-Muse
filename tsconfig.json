@@ -23,5 +23,7 @@
   "include": [
     "src",
     "Components/FaveButton/FaveButton.tsx",
+    "Components/NavBar/NavBar.tsx",
+    "Components/ArtCard/ArtCard.tsx"
   ]
 }

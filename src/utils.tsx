@@ -8,6 +8,10 @@ export interface ArtData {
   primaryImageSmall?: string
 }
 
+type Data = {
+  objectIDs: number[];
+};
+
 // Clean up data function: 
 
 const cleanUpData = (data: ArtData) => {
@@ -30,9 +34,14 @@ const cleanUpData = (data: ArtData) => {
 
 const generateID = (): number => Math.floor(Math.random() * 1000) + 1;
 
-// let objectID: number = generateID()
+// const getRandomObjectID = (data: Data): number | null => {
+//   const { objectIDs } = data;
+//   if (!objectIDs || objectIDs.length === 0) return null;
 
-// (( We don't have to use the objectID variable, we can always call the generateID function within the API call itself, or move this variable ))
-
+//   const randomIndex = Math.floor(Math.random() * objectIDs.length);
+//   return objectIDs[randomIndex];
+// }
 
 export { cleanUpData, generateID }
+
+// export { cleanUpData, getRandomObjectID }

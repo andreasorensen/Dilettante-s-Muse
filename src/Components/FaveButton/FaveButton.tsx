@@ -16,10 +16,8 @@ const FaveButton = ({piece, setisFavorited, isFavorited, setSavedPieces}: Props)
   const location = useLocation()
 
   const toggleFave = (e: React.MouseEvent<HTMLImageElement, MouseEvent>) => {
-    // const id = (e.target as HTMLInputElement).id;
     setisFavorited(prev => !prev)
     setSavedPieces(piece)
-    //save button knows what piece its on and can pass back up to app and set the save
   }
 
   return (
