@@ -66,8 +66,12 @@ function App() {
       } else {
         setSavePieces((prev) => {
           const i = savePieces.indexOf(foundPiece);
-          return prev.splice(i, 1);
+          const newprev = [...prev]
+          newprev.splice(i, 1);
+          console.log('prevfffff', newprev)
+          return newprev
         });
+          
       }
     }
   };
