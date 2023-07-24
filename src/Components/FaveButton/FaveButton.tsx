@@ -6,25 +6,22 @@ import { ArtData }from '../../utils';
 import { useLocation } from 'react-router-dom';
 
 interface Props {
-  pieces: ArtData[],
-  setPieces: (value: React.SetStateAction<ArtData[]>) => void,
   setisFavorited: React.Dispatch<React.SetStateAction<boolean>>,
   isFavorited: boolean,
-  setSavedPieces: (id: number | string) => void,
+  setSavedPieces: (piece: ArtData) => void,
   piece: ArtData
 }
 
-const FaveButton = ({piece, pieces, setPieces, setisFavorited, isFavorited, setSavedPieces}: Props) => {
+const FaveButton = ({piece, setisFavorited, isFavorited, setSavedPieces}: Props) => {
   const location = useLocation()
-  //if location.pathname.includea("saved") then render image src {fave} else
-  // check isFavorited 
+
   const toggleFave = (e: React.MouseEvent<HTMLImageElement, MouseEvent>) => {
     // const id = (e.target as HTMLInputElement).id;
-    const index = pieces.indexOf(piece)
     setisFavorited(prev => !prev)
-    setSavedPieces(piece.objectID)
+    setSavedPieces(piece)
+    //save button knows what piece its on and can pass back up to app and set the save
   }
-//when artcard rendered onSaved page set state to true 
+
   return (
     <div>
       {location.pathname.includes("saved") ? <img className='fave-icon' onClick={(e) => {toggleFave(e)}} src={fave} /> : 

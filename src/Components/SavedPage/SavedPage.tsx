@@ -4,23 +4,16 @@ import ArtCard from "../ArtCard/ArtCard";
 
 interface Props {
   savePieces: ArtData[];
-  setPieces: (value: React.SetStateAction<ArtData[]>) => void;
-  setSavedPieces: (id: number | string) => void;
+  setSavedPieces: (piece: ArtData) => void;
 }
-const SavedPage: React.FC<Props> = ({
-  savePieces,
-  setPieces,
-  setSavedPieces,
-}) => {
+const SavedPage: React.FC<Props> = ({ savePieces, setSavedPieces }) => {
   const renderSavedPieces = () => {
     return savePieces.map((piece) => {
       return (
         <ArtCard
           key={piece.objectID}
           piece={piece}
-          setPieces={setPieces}
           setSavedPieces={setSavedPieces}
-          pieces={savePieces}
         />
       );
     });
@@ -28,7 +21,11 @@ const SavedPage: React.FC<Props> = ({
 
   return (
     <div>
-      {!savePieces.length ? <h1>There are no saved pieces</h1> : renderSavedPieces()}
+      {!savePieces.length ? (
+        <h1>There are no saved pieces</h1>
+      ) : (
+        renderSavedPieces()
+      )}
     </div>
   );
 };
