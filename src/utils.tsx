@@ -30,6 +30,16 @@ const cleanUpData = (data: ArtData) => {
   }
 }
 
+interface idData {
+  objectIDs: number[]
+}   
 
-export { cleanUpData }
+const getRandomIds = (data: idData) => {
+  const index = Math.floor(Math.random() * data.objectIDs.length)
+  const index1 = Math.floor(Math.random() * data.objectIDs.length)
+  const index2 = Math.floor(Math.random() * data.objectIDs.length)
+  return [data.objectIDs[index], data.objectIDs[index1], data.objectIDs[index2]]
+}
+
+export { cleanUpData, getRandomIds }
 
