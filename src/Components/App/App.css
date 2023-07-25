@@ -2,3 +2,9 @@ body {
   background-color: #800F2F;
   height: 100vh;
 }
+
+.error-message {
+  padding-top: 300px;
+  text-align: center;
+  font-size: larger;
+}

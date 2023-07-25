@@ -45,7 +45,7 @@ function App() {
     if (pieces.length < 3) {
       callApi();
     } else if (pieces.length === 4) {
-      pieces.pop();
+      setPieces((prev => prev.slice(0, prev.length - 1)))
     }
   }, [pieces]);
 
@@ -68,21 +68,27 @@ function App() {
   return (
     <div className="App">
       <NavBar setPieces={setPieces} />
-      <Routes>
-        <Route
-          path="/"
-          element={<Homepage pieces={pieces} setSavedPieces={setSavedPieces} />}
-        />
-        <Route
-          path="/saved"
-          element={
-            <SavedPage
-              setSavedPieces={setSavedPieces}
-              savePieces={savePieces}
-            />
-          }
-        />
-      </Routes>
+      {error ? (
+        <div className="error-message">{error}</div>
+      ) : (
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Homepage pieces={pieces} setSavedPieces={setSavedPieces} />
+            }
+          />
+          <Route
+            path="/saved"
+            element={
+              <SavedPage
+                setSavedPieces={setSavedPieces}
+                savePieces={savePieces}
+              />
+            }
+          />
+        </Routes>
+      )}
     </div>
   );
 }

@@ -1,11 +1,3 @@
-
-// const getArt = (objectID: number) => {
-//   // console.log(" obj ID", objectID);
-//   return fetch(
-//     `https://collectionapi.metmuseum.org/public/collection/v1/objects/${objectID}`
-//   ).then((res) => res.json());
-// };
-
 const getArt = async (objectID: number) => {
   // console.log(" obj ID", objectID);
   const res = await fetch(
@@ -18,11 +10,6 @@ const getArt = async (objectID: number) => {
   
   return res.json();
 };
-
-// const getIDs = () => {
-//   return fetch('https://collectionapi.metmuseum.org/public/collection/v1/search?medium=Paintings&q=painting'
-//   ).then((res) => res.json())
-// }
 
 const getIDs = async () => {
   const res = await fetch('https://collectionapi.metmuseum.org/public/collection/v1/search?medium=Paintings&q=painting'); 
