@@ -23,11 +23,6 @@ function App() {
           // console.log("DATA WITH IMAGE", cleanData);
           setPieces((prev) => [...prev, cleanData]);
           return cleanData;
-        } else if (
-          !data.primaryImage ||
-          data.message === "ObjectID not found"
-        ) {
-          callApi();
         }
       })
       )

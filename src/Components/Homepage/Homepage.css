@@ -13,10 +13,3 @@
   font-size: 2rem;
   color: white;
 }
-
-.art-cards-container {
-  display: flex; 
-  justify-content: space-between;
-  position: relative;
-  padding: 25px;
-}
