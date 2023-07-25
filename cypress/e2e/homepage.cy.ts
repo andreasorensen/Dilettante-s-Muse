@@ -17,6 +17,13 @@ beforeEach(() => {
   })
   .visit('http://localhost:3000/')
 })
-it('should stub data', () => {
-  cy.get('.nav-container')
+it('should have a nav bar', () => {
+  cy.url().should('include', '/')
+  .get('.nav-container').find('.logo').should('be.visible')
+  .get('.nav-container').find('.home-page').should('be.visible')
+  .get('.nav-container').find('.saved-art').should('be.visible')
+  // .click().url().should('include', '/saved').find('.home-page').click()
+})
+it('should have art visible on the homepage', () => {
+  
 })
