@@ -31,6 +31,5 @@ const cleanUpData = (data: ArtData) => {
 }
 
 
-
 export { cleanUpData }
 
