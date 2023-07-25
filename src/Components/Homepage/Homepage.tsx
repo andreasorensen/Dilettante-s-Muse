@@ -21,10 +21,12 @@ const Homepage = ({ pieces, setSavedPieces }: Props) => {
   };
 
   return (
+  <div className='art-cards-wrapper'>
     <div className="art-cards-container">
       {renderPieces()}
       {pieces.length < 3 && <p className="loading-text">Loading...</p>}
     </div>
+  </div>
   );
 };
 

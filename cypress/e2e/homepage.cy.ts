@@ -25,5 +25,11 @@ it('should have a nav bar', () => {
   // .click().url().should('include', '/saved').find('.home-page').click()
 })
 it('should have art visible on the homepage', () => {
-  
+  cy.get('.art-cards-container').should('be.visible')
+  .get('.art-cards-container').should('have.length', 1)
+  .get('.art-cards-wrapper').find('.details-container').should('be.visible')
+  .get('.details-container').find('.details').find('.title')
+  .get('.details').find('.artist')
+  .get('.details').find('.date')
+  .get('.details-container > .fave-container > div > .fave-icon')
 })
