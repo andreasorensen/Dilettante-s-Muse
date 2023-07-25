@@ -3,7 +3,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import Homepage from "../Homepage/Homepage";
-import { generateID, cleanUpData, ArtData } from "../../utils";
+import {cleanUpData, ArtData, getRandomIds } from "../../utils";
 import SavedPage from "../SavedPage/SavedPage";
 import NavBar from "../NavBar/NavBar";
 import { getArt, getIDs } from "../../apiCalls";
@@ -13,26 +13,22 @@ function App() {
   const [pieces, setPieces] = useState<ArtData[]>([]);
   const [savePieces, setSavePieces] = useState<ArtData[]>([]);
 
-  useEffect(() => {
-    const callApi = async () => {
-      const ids = await getIDs()
-      ids.forEach(id => 
+  const callApi = async () => {
+    const ids = await getIDs() 
+    const randomPieces = getRandomIds(ids)
+    randomPieces.forEach(id =>
       getArt(id).then((data) => {
+        console.log('data', data)
         if (data.primaryImage && data.message !== "ObjectID not found") {
           const cleanData: any = cleanUpData(data);
-          // console.log("DATA WITH IMAGE", cleanData);
           setPieces((prev) => [...prev, cleanData]);
           return cleanData;
-        } else if (
-          !data.primaryImage ||
-          data.message === "ObjectID not found"
-        ) {
-          callApi();
         }
       })
-      )
-    };
-    // console.log("pieces", pieces);
+    )
+  }
+
+  useEffect(() => {
     if (pieces.length < 3) {
       callApi();
     } else if (pieces.length === 4) {
