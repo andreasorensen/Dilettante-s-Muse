@@ -13,22 +13,22 @@ function App() {
   const [pieces, setPieces] = useState<ArtData[]>([]);
   const [savePieces, setSavePieces] = useState<ArtData[]>([]);
 
-useEffect(() => {
-const callApi = async () => {
-  const ids = await getIDs() 
-  const randomPieces = getRandomIds(ids)
-  randomPieces.forEach(id =>
-    getArt(id).then((data) => {
-      console.log('data', data)
-      if (data.primaryImage && data.message !== "ObjectID not found") {
-        const cleanData: any = cleanUpData(data);
-        setPieces((prev) => [...prev, cleanData]);
-        return cleanData;
-      }
-    })
-  )
-}
-    // console.log("pieces", pieces);
+  const callApi = async () => {
+    const ids = await getIDs() 
+    const randomPieces = getRandomIds(ids)
+    randomPieces.forEach(id =>
+      getArt(id).then((data) => {
+        console.log('data', data)
+        if (data.primaryImage && data.message !== "ObjectID not found") {
+          const cleanData: any = cleanUpData(data);
+          setPieces((prev) => [...prev, cleanData]);
+          return cleanData;
+        }
+      })
+    )
+  }
+
+  useEffect(() => {
     if (pieces.length < 3) {
       callApi();
     } else if (pieces.length === 4) {
