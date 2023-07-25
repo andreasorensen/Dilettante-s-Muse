@@ -30,18 +30,7 @@ const cleanUpData = (data: ArtData) => {
   }
 }
 
-// Generate randomID: 
 
-const generateID = (): number => Math.floor(Math.random() * 1000) + 1;
 
-// const getRandomObjectID = (data: Data): number | null => {
-//   const { objectIDs } = data;
-//   if (!objectIDs || objectIDs.length === 0) return null;
+export { cleanUpData }
 
-//   const randomIndex = Math.floor(Math.random() * objectIDs.length);
-//   return objectIDs[randomIndex];
-// }
-
-export { cleanUpData, generateID }
-
-// export { cleanUpData, getRandomObjectID }

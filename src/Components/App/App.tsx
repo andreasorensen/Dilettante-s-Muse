@@ -3,7 +3,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import Homepage from "../Homepage/Homepage";
-import { generateID, cleanUpData, ArtData } from "../../utils";
+import {cleanUpData, ArtData } from "../../utils";
 import SavedPage from "../SavedPage/SavedPage";
 import NavBar from "../NavBar/NavBar";
 import { getArt, getIDs } from "../../apiCalls";
@@ -23,10 +23,10 @@ function App() {
           // console.log("DATA WITH IMAGE", cleanData);
           setPieces((prev) => [...prev, cleanData]);
           return cleanData;
-        } else if (
-          !data.primaryImage ||
-          data.message === "ObjectID not found"
-        ) {
+        // } else if (
+        //   !data.primaryImage ||
+        //   data.message === "ObjectID not found"
+        // ) {
           callApi();
         }
       })
