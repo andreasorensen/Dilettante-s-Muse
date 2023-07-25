@@ -58,7 +58,7 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<Homepage pieces={pieces} setSavedPieces={setSavedPieces} />}
+          element={<Homepage pieces={pieces} setSavedPieces={setSavedPieces} setPieces={setPieces} />}
         />
         <Route
           path="/saved"

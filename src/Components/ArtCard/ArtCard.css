@@ -3,6 +3,7 @@
   justify-content: space-between;
   position: relative;
   padding: 25px;
+  width: 90%;
 }
 
 .frame-container {
@@ -67,6 +68,7 @@
 .details {
   text-align: center;
   height:50%;
+  min-height: 80px
 }
 
 .title {
@@ -94,7 +96,7 @@
   }
 
   .frame-container {
-    margin-top: 700px;
+    margin-top: 600px;
   }
 
   .details-container {
