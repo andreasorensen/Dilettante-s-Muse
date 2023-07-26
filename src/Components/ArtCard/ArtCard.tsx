@@ -25,7 +25,7 @@ const ArtCard = ({ setSavedPieces, piece }: Props) => {
         <div className="details">
           <p className="title">{piece.title}</p>
           <p className="artist">{piece.artistDisplayName}</p>
-          <p className="date">{piece.objectDate}</p>
+          {!piece.objectDate && <p className="date">Date Unknown</p> || <p className="date">{piece.objectDate}</p>}
         </div>
         <div className="fave-container">
           <FaveButton
