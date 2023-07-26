@@ -21,11 +21,13 @@ const cleanUpData = (data: ArtData) => {
 
   const updatedArtistName = artistDisplayName === '' ? 'Artist unknown' : artistDisplayName;
 
+  const updatedObjectDate = objectDate === '' ? 'Date unknown' : objectDate;
+
   return {
     objectID,
     title: updatedTitle, 
     artistDisplayName: updatedArtistName,
-    objectDate,
+    objectDate: updatedObjectDate,
     primaryImage: primaryImage || primaryImageSmall
   }
 }
@@ -34,7 +36,7 @@ interface idData {
   objectIDs: number[]
 }   
 
-const getRandomIds = (data: idData) => {
+const getRandomIds = (data: idData): number[] => {
   const index = Math.floor(Math.random() * data.objectIDs.length)
   const index1 = Math.floor(Math.random() * data.objectIDs.length)
   const index2 = Math.floor(Math.random() * data.objectIDs.length)
