@@ -17,12 +17,12 @@ beforeEach(() => {
   })
   .visit('http://localhost:3000/')
 })
+//testing home page navbar
 it('should have a nav bar', () => {
   cy.url().should('include', '/')
   .get('.nav-container').find('.logo').should('be.visible')
   .get('.nav-container').find('.home-page').should('be.visible')
   .get('.nav-container').find('.saved-art').should('be.visible')
-  // .click().url().should('include', '/saved').find('.home-page').click()
 })
 it('should have art visible on the homepage', () => {
   cy.get('.art-cards-container').should('be.visible')
@@ -33,4 +33,11 @@ it('should have art visible on the homepage', () => {
   .get('.details').find('.date')
   .get(':nth-child(1) > .details-container > .fave-container > div').find('.fave-icon').click()
   .get(':nth-child(1) > .details-container > .fave-container > div').find('.fave-icon').click()
+})
+it('Should have different route paths going from homepage to saved page and back', () => {
+  cy.url().should('include', '/')
+  .get('.nav-container').find('.saved-art').click()
+  .url().should('include', '/saved')
+  .get('.nav-container').find('.home-page').click()
+  .url().should('include', '/')
 })
