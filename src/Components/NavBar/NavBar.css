@@ -9,6 +9,7 @@
   box-shadow: 0px 15px 10px -15px #111; 
   z-index: 9999;
   position: fixed;
+  top: 0;
   width: 100%;
 }
 
@@ -39,12 +40,10 @@
 
 .logo {
   width: 400px;
-  /* background-color: #ffedcb29; */
   margin: 20px 0;
-  /* border-radius: 20px; */
 }
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   .logo {
     width: 350px;
   }
@@ -55,14 +54,14 @@
     justify-content: flex-end;
   }
 
-  .saved-art {
+  .home-page {
     position: fixed;
     top: 0;
     left: 30px;
     width: 20%;
   }
 
-  .home-page {
+  .saved-art {
     position: fixed;
     top: 0;
     right: 30px;

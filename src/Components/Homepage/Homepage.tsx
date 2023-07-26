@@ -6,9 +6,10 @@ import './Homepage.css'
 interface Props {
   pieces: ArtData[];
   setSavedPieces: (piece: ArtData) => void;
+  setPieces: React.Dispatch<React.SetStateAction<ArtData[]>>
 }
 
-const Homepage = ({ pieces, setSavedPieces }: Props) => {
+const Homepage = ({ pieces, setSavedPieces, setPieces }: Props) => {
   const renderPieces = () => {
     const allPieces = pieces.map((piece) => (
       <ArtCard
@@ -21,9 +22,13 @@ const Homepage = ({ pieces, setSavedPieces }: Props) => {
   };
 
   return (
-    <div className="art-cards-container">
-      {renderPieces()}
-      {pieces.length < 3 && <p className="loading-text">Loading...</p>}
+    <div className="homepage">
+      <h1 className="home-header">Discover Paintings from the Metropolitan Museum of Art</h1>
+      <div className="art-cards-container">
+        {renderPieces()}
+        {pieces.length < 3 && <p className="loading-text">Loading...</p>}
+      </div>
+      <button onClick={() => {setPieces([])}} className="more-btn">Get More Art</button>
     </div>
   );
 };
