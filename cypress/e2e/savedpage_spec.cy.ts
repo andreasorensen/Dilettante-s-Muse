@@ -23,9 +23,9 @@ beforeEach(() => {
                         
 // })
 
-it('should be able to see saved art piece on saved art section', () => {
+it('should be able to see saved art pieces on saved art section', () => {
   cy.get(':nth-child(1) > .details-container > .fave-container > div > .fave-icon').click()
   cy.get(':nth-child(2) > .details-container > .fave-container > div > .fave-icon').click()
   cy.get('.saved-art').click()
-                        
+  .get('.art-card').should('have.length', '2')              
 })
