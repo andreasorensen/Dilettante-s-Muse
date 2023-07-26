@@ -1,3 +1,7 @@
+.no-saved-message {
+  padding-top: 300px;
+}
+
 .saved-container {
   display: flex;
   justify-content: center;

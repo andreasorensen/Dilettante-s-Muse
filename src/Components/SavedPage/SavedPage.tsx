@@ -4,6 +4,7 @@ import ArtCard from "../ArtCard/ArtCard";
 import './SavedPage.css';
 import bottomLogo from '../../images/bottomlogo.png';
 
+
 interface Props {
   savePieces: ArtData[];
   setSavedPieces: (piece: ArtData) => void;
