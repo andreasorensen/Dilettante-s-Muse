@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import logo from '../../images/logo1.png'
 import { ArtData
  } from '../../utils';
+ 
 interface Props {
   setPieces: React.Dispatch<React.SetStateAction<ArtData[]>>
 }

@@ -2,6 +2,7 @@ import React from "react";
 import { ArtData } from "../../utils";
 import ArtCard from "../ArtCard/ArtCard";
 
+
 interface Props {
   savePieces: ArtData[];
   setSavedPieces: (piece: ArtData) => void;
@@ -22,7 +23,7 @@ const SavedPage: React.FC<Props> = ({ savePieces, setSavedPieces }) => {
   return (
     <div>
       {!savePieces.length ? (
-        <h1>There are no saved pieces</h1>
+        <h1 className='no-saved-pieces'>There are no saved pieces</h1>
       ) : (
         renderSavedPieces()
       )}
