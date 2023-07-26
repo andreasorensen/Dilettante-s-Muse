@@ -7,6 +7,7 @@ import { cleanUpData, ArtData, getRandomIds } from "../../utils";
 import SavedPage from "../SavedPage/SavedPage";
 import NavBar from "../NavBar/NavBar";
 import { getArt, getIDs } from "../../apiCalls";
+import NotFoundPage from "../NotFoundPage/NotFoundPage";
 
 interface Ids {
   total: number;
@@ -75,7 +76,7 @@ function App() {
           <Route
             path="/"
             element={
-              <Homepage pieces={pieces} setSavedPieces={setSavedPieces} />
+              <Homepage pieces={pieces} setSavedPieces={setSavedPieces} setPieces={setPieces}/>
             }
           />
           <Route
@@ -86,6 +87,10 @@ function App() {
                 savePieces={savePieces}
               />
             }
+          />
+          <Route 
+            path="/*" 
+            element={<NotFoundPage />} 
           />
         </Routes>
       )}
