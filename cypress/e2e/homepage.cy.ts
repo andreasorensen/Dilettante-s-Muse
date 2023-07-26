@@ -31,5 +31,6 @@ it('should have art visible on the homepage', () => {
   .get('.details-container').find('.details').find('.title')
   .get('.details').find('.artist')
   .get('.details').find('.date')
-  .get('.details-container > .fave-container > div > .fave-icon')
+  .get(':nth-child(1) > .details-container > .fave-container > div').find('.fave-icon').click()
+  .get(':nth-child(1) > .details-container > .fave-container > div').find('.fave-icon').click()
 })
