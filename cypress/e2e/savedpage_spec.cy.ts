@@ -46,12 +46,7 @@ it("should be able to see saved art pieces on saved art section", () => {
 });
 
 it("should have filled in hearts for saved pieces", () => {
-  cy.get(":nth-child(1) > .details-container > .fave-container > div > .fave-icon")
-    .click()
-    .get(":nth-child(2) > .details-container > .fave-container > div > .fave-icon")
-    .click()
-    .get(".saved-art")
-    .click()
+  cy.saveTwoPieces()
     .get(":nth-child(1) > .details-container > .fave-container > div > .fave-icon")
     .should("have.attr", "src")
     .should("include", "/static/media/saved.3e19432c4a0f740d5575.png")
@@ -61,12 +56,7 @@ it("should have filled in hearts for saved pieces", () => {
 });
 
 it("should be able to delete saved pieces", () => {
-  cy.get(":nth-child(1) > .details-container > .fave-container > div > .fave-icon")
-    .click()
-    .get(":nth-child(2) > .details-container > .fave-container > div > .fave-icon")
-    .click()
-    .get(".saved-art")
-    .click()
+  cy.saveTwoPieces()
     .get(".art-card")
     .should("have.length", 2)
     .get(":nth-child(2) > .details-container > .fave-container > div > .fave-icon")
