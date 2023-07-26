@@ -25,7 +25,14 @@ beforeEach(() => {
 
 it('should be able to see saved art pieces on saved art section', () => {
   cy.get(':nth-child(1) > .details-container > .fave-container > div > .fave-icon').click()
-  cy.get(':nth-child(2) > .details-container > .fave-container > div > .fave-icon').click()
-  cy.get('.saved-art').click()
+  .get(':nth-child(2) > .details-container > .fave-container > div > .fave-icon').click()
+  .get('.saved-art').click()
   .get('.art-card').should('have.length', '2')              
+})
+it('should have filled in hearts for saved pieces', () => {
+  cy.get(':nth-child(1) > .details-container > .fave-container > div > .fave-icon').click()
+  .get(':nth-child(2) > .details-container > .fave-container > div > .fave-icon').click()
+  .get('.saved-art').click()
+  .get(':nth-child(1) > .details-container > .fave-container > div > .fave-icon').should('have.attr', 'src').should('include', '/static/media/saved.3e19432c4a0f740d5575.png')
+  .get(':nth-child(2) > .details-container > .fave-container > div > .fave-icon').should('have.attr', 'src').should('include', '/static/media/saved.3e19432c4a0f740d5575.png')            
 })
