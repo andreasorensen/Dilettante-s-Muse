@@ -25,11 +25,10 @@ const SavedPage: React.FC<Props> = ({ savePieces, setSavedPieces }) => {
     <div className="saved-container">
       <div className="saved-header-container">
         <h1 className="saved-header">My Favorite Pieces</h1>
-        {/* <img src={bottomLogo} className="border" /> */}
       </div>
       <div className="saved-pieces">
       {!savePieces.length ? (
-        <h1>There are no saved pieces</h1>
+        <h1 className="saved-text">There are no saved pieces</h1>
       ) : (
         renderSavedPieces()
       )}
