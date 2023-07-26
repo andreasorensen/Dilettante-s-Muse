@@ -23,7 +23,7 @@ const Homepage = ({ pieces, setSavedPieces, setPieces }: Props) => {
 
   return (
     <div className="homepage">
-      <h1 className="home-header">Discover Paintings from the Metropolitan Museam of Art</h1>
+      <h1 className="home-header">Discover Paintings from the Metropolitan Museum of Art</h1>
       <div className="art-cards-container">
         {renderPieces()}
         {pieces.length < 3 && <p className="loading-text">Loading...</p>}
