@@ -8,7 +8,14 @@
 // commands please read more here:
 // https://on.cypress.io/custom-commands
 // ***********************************************
-//
+Cypress.Commands.add('saveTwoPieces', () => {
+  cy.get(":nth-child(1) > .details-container > .fave-container > div > .fave-icon")
+    .click()
+    .get(":nth-child(2) > .details-container > .fave-container > div > .fave-icon")
+    .click()
+    .get(".saved-art")
+    .click()
+});
 //
 // -- This is a parent command --
 // Cypress.Commands.add('login', (email, password) => { ... })
