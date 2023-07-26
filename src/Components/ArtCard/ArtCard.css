@@ -15,7 +15,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 500px;
 }
 
 .frame-image {
@@ -28,15 +27,14 @@
 
 .art-card {
   position: relative;
-  /* z-index: 1; */
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   width: 50%;
   max-width: 600px;
   margin: 20px;
   height: 475px;
-  justify-content: space-around;
 }
 
 .image-container {
@@ -51,7 +49,6 @@
 .image {
   height: 300px;
   width: 88%;
-  /* z-index: 1; */
   object-fit: cover;
 }
 
@@ -93,10 +90,7 @@
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
-  }
-
-  .frame-container {
-    margin-top: 600px;
+    margin-top: 100px;
   }
 
   .details-container {

@@ -1,7 +1,8 @@
 import React from "react";
 import { ArtData } from "../../utils";
 import ArtCard from "../ArtCard/ArtCard";
-import './SavedPage.css'
+import './SavedPage.css';
+import bottomLogo from '../../images/bottomlogo.png';
 
 interface Props {
   savePieces: ArtData[];
@@ -22,11 +23,17 @@ const SavedPage: React.FC<Props> = ({ savePieces, setSavedPieces }) => {
 
   return (
     <div className="saved-container">
+      <div className="saved-header-container">
+        <h1 className="saved-header">My Favorite Pieces</h1>
+        <img src={bottomLogo} className="border" />
+      </div>
+      <div className="saved-pieces">
       {!savePieces.length ? (
         <h1>There are no saved pieces</h1>
       ) : (
         renderSavedPieces()
       )}
+      </div>
     </div>
   );
 };

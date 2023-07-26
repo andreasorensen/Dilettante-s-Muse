@@ -3,3 +3,45 @@
   justify-content: center;
   flex-wrap: wrap;
 }
+
+.saved-header {
+  font-size: 2rem;
+  text-align: center;
+  font-family: 'Brygada 1918', serif;
+  color: white;
+  margin-bottom: 0;
+  width: 100%;
+  background-color: #800F2F;
+}
+
+.saved-header-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  z-index: 9999;
+  position: fixed;
+  top: 190px;
+  background-color: #800F2F;
+}
+
+.border {
+  width: 250px;
+  margin-bottom: 20px;
+
+}
+
+.saved-pieces {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 350px;
+}
+
+@media (max-width: 700px) {
+  .saved-header-container {
+    top: 170px;
+  }
+}
