@@ -75,7 +75,7 @@ function App() {
           <Route
             path="/"
             element={
-              <Homepage pieces={pieces} setSavedPieces={setSavedPieces} />
+              <Homepage pieces={pieces} setSavedPieces={setSavedPieces} setPieces={setPieces}/>
             }
           />
           <Route
