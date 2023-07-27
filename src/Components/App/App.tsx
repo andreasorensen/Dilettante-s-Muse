@@ -22,9 +22,7 @@ function App() {
   const callApi = async () => {
     try {
       const ids: Ids = await getIDs();
-      console.log("ids:", ids);
       const randomPieces: number[] = getRandomIds(ids);
-      console.log("randomPieces", randomPieces);
       for (const id of randomPieces) {
         const data = await getArt(id);
         if (data.primaryImage && data.message !== "ObjectID not found") {
