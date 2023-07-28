@@ -23,14 +23,12 @@ function App() {
     try {
       const ids: Ids = await getIDs();
       const id: number = getRandomIds(ids);
-      // console.log('randomPieces', randomPieces)
-      // for ((const id of randomPieces)) {
         const data = await getArt(id);
-        console.log('data', data)
         if (data.primaryImage && data.message !== "ObjectID not found") {
           const cleanData: any = cleanUpData(data);
           setPieces((prev) => [...prev, cleanData]);
-        // }
+      } else {
+        callApi()
       }
     } catch (error: unknown) {
       if (error instanceof Error && error.message.includes("Server error")) {
@@ -38,17 +36,13 @@ function App() {
           "Sorry, we encountered a server error. Please try again later."
         );
       }
-      console.log(error);
     }
   };
 
   useEffect(() => {
-    console.log('PPP', pieces)
     if (pieces.length < 3) {
-      console.log('pieces<3', pieces)
       callApi();
     } else if (pieces.length === 4) {
-      console.log('pieces===4', pieces)
       setPieces((prev => prev.slice(0, prev.length - 1)))
     }
   }, [pieces]);

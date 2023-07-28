@@ -1,5 +1,4 @@
 const getArt = async (objectID: number) => {
-  console.log('objectID', objectID)
   const res = await fetch(
     `https://collectionapi.metmuseum.org/public/collection/v1/objects/${objectID}`
   );
