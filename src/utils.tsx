@@ -36,12 +36,15 @@ interface idData {
   objectIDs: number[]
 }   
 
-const getRandomIds = (data: idData): number[] => {
+const getRandomIds = (data: idData): number => {
   const index = Math.floor(Math.random() * data.objectIDs.length)
-  const index1 = Math.floor(Math.random() * data.objectIDs.length)
-  const index2 = Math.floor(Math.random() * data.objectIDs.length)
-  return [data.objectIDs[index], data.objectIDs[index1], data.objectIDs[index2]]
+  // const index1 = Math.floor(Math.random() * data.objectIDs.length)
+  // const index2 = Math.floor(Math.random() * data.objectIDs.length)
+  // return [data.objectIDs[index], data.objectIDs[index1], data.objectIDs[index2]]
+  return data.objectIDs[index]
 }
+
+//took away array in return and number prop
 
 export { cleanUpData, getRandomIds }
 

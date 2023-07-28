@@ -1,6 +1,6 @@
 import "./NotFoundPage.css"
 
-const NotFoundPage = () => {
+const NotFoundPage: React.FC = () => {
   return (
     <div className='not-found-container'>
       <h1>404 Not Found</h1>
