@@ -3,7 +3,7 @@ import { ArtData } from "../../utils";
 import ArtCard from "../ArtCard/ArtCard";
 import './Homepage.css'
 
-interface Props {
+interface Props {//hat needs to be put into state is not just directly from form... it should be the actual response from the post TESTPST meaning interception
   pieces: ArtData[];
   setSavedPieces: (piece: ArtData) => void;
   setPieces: React.Dispatch<React.SetStateAction<ArtData[]>>
