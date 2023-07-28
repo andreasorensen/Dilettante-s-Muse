@@ -2,7 +2,7 @@ beforeEach(() => {
   cy.intercept('GET', 'https://collectionapi.metmuseum.org/public/collection/v1/search?medium=Paintings&q=painting', {
     statusCode: 200, 
     body:  { objectIDs: [1, 2, 3]}  
-  } )
+  })
   cy.intercept('GET', 'https://collectionapi.metmuseum.org/public/collection/v1/objects/1', {
     statusCode: 200, 
     fixture: 'object1'
