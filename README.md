@@ -16,8 +16,8 @@
 5. run `npm start` to launch the application in your default browser
 
 
-#Challenges
--deleting art pieces from saved page
+## Challenges
+- deleting art pieces from saved page
 
 ## TECHNOLOGIES USED 
 <div align="center">  
