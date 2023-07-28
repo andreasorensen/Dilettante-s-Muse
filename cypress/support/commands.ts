@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
 Cypress.Commands.add('savePieces', () => {
-  return cy.get(":nth-child(1) > .details-container > .fave-container > div > .fave-icon")
+  return cy.get(".fave-icon").first()
     .click()
     .get(".saved-art")
     .click()
