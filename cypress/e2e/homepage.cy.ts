@@ -1,5 +1,5 @@
 describe("Users should be able to load homepage", () => {
-  it("should have a nav bar and art visible on the homepage", () => {
+  beforeEach(() => {
     cy.intercept(
       "GET",
       "https://collectionapi.metmuseum.org/public/collection/v1/search?medium=Paintings&q=painting",
@@ -34,7 +34,9 @@ describe("Users should be able to load homepage", () => {
     )
       .as("getdata3")
       .visit("http://localhost:3000/");
+  });
 
+  it("should have a nav bar and art visible on the homepage", () => {
     cy.url()
       .should("include", "/")
       .get(".nav-container")
@@ -81,44 +83,8 @@ describe("Users should be able to load homepage", () => {
         "Discover Paintings from the Metropolitan Museum of Art"
       );
   });
-});
 
-describe("Users should be able to navigate to different pages", () => {
   it("Should have different route paths going from homepage to saved page and back", () => {
-    cy.intercept(
-      "GET",
-      "https://collectionapi.metmuseum.org/public/collection/v1/search?medium=Paintings&q=painting",
-      {
-        statusCode: 200,
-        body: { objectIDs: [1, 2, 3] },
-      }
-    ).as("object-fetch");
-    cy.intercept(
-      "GET",
-      "https://collectionapi.metmuseum.org/public/collection/v1/objects/1",
-      {
-        statusCode: 200,
-        fixture: "object1",
-      }
-    ).as("getdata1");
-    cy.intercept(
-      "GET",
-      "https://collectionapi.metmuseum.org/public/collection/v1/objects/2",
-      {
-        statusCode: 200,
-        fixture: "object2",
-      }
-    ).as("getdata2");
-    cy.intercept(
-      "GET",
-      "https://collectionapi.metmuseum.org/public/collection/v1/objects/3",
-      {
-        statusCode: 200,
-        fixture: "object3",
-      }
-    )
-      .as("getdata3")
-      .visit("http://localhost:3000/");
     cy.url()
       .should("include", "/")
       .get(".nav-container")
@@ -131,44 +97,9 @@ describe("Users should be able to navigate to different pages", () => {
       .click();
     cy.url().should("include", "/");
   });
-});
+// });
 
-describe("Users should be able to get more art pieces", () => {
   it("Should be able to get more art pieces by clicking button ", () => {
-    cy.intercept(
-      "GET",
-      "https://collectionapi.metmuseum.org/public/collection/v1/search?medium=Paintings&q=painting",
-      {
-        statusCode: 200,
-        body: { objectIDs: [1, 2, 3] },
-      }
-    ).as("object-fetch");
-    cy.intercept(
-      "GET",
-      "https://collectionapi.metmuseum.org/public/collection/v1/objects/1",
-      {
-        statusCode: 200,
-        fixture: "object1",
-      }
-    ).as("getdata1");
-    cy.intercept(
-      "GET",
-      "https://collectionapi.metmuseum.org/public/collection/v1/objects/2",
-      {
-        statusCode: 200,
-        fixture: "object2",
-      }
-    ).as("getdata2");
-    cy.intercept(
-      "GET",
-      "https://collectionapi.metmuseum.org/public/collection/v1/objects/3",
-      {
-        statusCode: 200,
-        fixture: "object3",
-      }
-    )
-      .as("getdata3")
-      .visit("http://localhost:3000/");
     cy.get(".more-btn").click();
     cy.get(".art-cards-container")
       .should("be.visible")
@@ -192,44 +123,8 @@ describe("Users should be able to get more art pieces", () => {
       .get(".details")
       .find(".date");
   });
-});
 
-describe("Users should see loading screen", () => {
   it("Should display loading text if art is loading", () => {
-    cy.intercept(
-      "GET",
-      "https://collectionapi.metmuseum.org/public/collection/v1/search?medium=Paintings&q=painting",
-      {
-        statusCode: 200,
-        body: { objectIDs: [1, 2, 3] },
-      }
-    ).as("object-fetch");
-    cy.intercept(
-      "GET",
-      "https://collectionapi.metmuseum.org/public/collection/v1/objects/1",
-      {
-        statusCode: 200,
-        fixture: "object1",
-      }
-    ).as("getdata1");
-    cy.intercept(
-      "GET",
-      "https://collectionapi.metmuseum.org/public/collection/v1/objects/2",
-      {
-        statusCode: 200,
-        fixture: "object2",
-      }
-    ).as("getdata2");
-    cy.intercept(
-      "GET",
-      "https://collectionapi.metmuseum.org/public/collection/v1/objects/3",
-      {
-        statusCode: 200,
-        fixture: "object3",
-      }
-    )
-      .as("getdata3")
-      .visit("http://localhost:3000/");
     cy.visit("http://localhost:3000/?delay=500")
       .get(".loading-text")
       .should("be.visible")
