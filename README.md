@@ -17,7 +17,9 @@
 
 
 ## Challenges
-- deleting art pieces from saved page
+-One challenge our Cypress testing encountered errors due to fetch request interception problems. We implemented aliases and waits to resolve the issue, but later faced test crashes and timeouts after modifying the fetch function in the App. The problem stemmed from our randomizer function selecting indices from a fixed array, causing Cypress to wait for non-existent fetch calls, leading to test failures. Our solution was to git rid off the aliases and waits.
+
+- Initially we thought our fetch would only run until it came back with three pieces with images but then through testing discovered that each time a piece would come back without an image it would fetch another three pieces rather than only fetching for one time. We then were able to fetch 
 
 ## TECHNOLOGIES USED 
 <div align="center">  
