@@ -7,17 +7,17 @@
   "primaryImage": "https://images.metmuseum.org/CRDImages/ep/original/DP280846.jpg",
   "primaryImageSmall": "https://images.metmuseum.org/CRDImages/ep/web-large/DP280846.jpg",
   "additionalImages": [
-      "https://images.metmuseum.org/CRDImages/ep/original/GermanCat25_Xraynocap.jpg"
+    "https://images.metmuseum.org/CRDImages/ep/original/GermanCat25_Xraynocap.jpg"
   ],
   "constituents": [
-      {
-          "constituentID": 161857,
-          "role": "Artist",
-          "name": "Albrecht Dürer",
-          "constituentULAN_URL": "http://vocab.getty.edu/page/ulan/500115493",
-          "constituentWikidata_URL": "https://www.wikidata.org/wiki/Q5580",
-          "gender": ""
-      }
+    {
+      "constituentID": 161857,
+      "role": "Artist",
+      "name": "Albrecht Dürer",
+      "constituentULAN_URL": "http://vocab.getty.edu/page/ulan/500115493",
+      "constituentWikidata_URL": "https://www.wikidata.org/wiki/Q5580",
+      "gender": ""
+    }
   ],
   "department": "European Paintings",
   "objectName": "Painting",
@@ -45,14 +45,14 @@
   "medium": "Oil on linden",
   "dimensions": "23 5/8 x 19 5/8 in. (60 x 49.8 cm)",
   "measurements": [
-      {
-          "elementName": "Overall",
-          "elementDescription": null,
-          "elementMeasurements": {
-              "Height": 60,
-              "Width": 49.8
-          }
+    {
+      "elementName": "Overall",
+      "elementDescription": null,
+      "elementMeasurements": {
+        "Height": 60,
+        "Width": 49.8
       }
+    }
   ],
   "creditLine": "Bequest of Benjamin Altman, 1913",
   "geographyType": "",
@@ -73,16 +73,16 @@
   "repository": "Metropolitan Museum of Art, New York, NY",
   "objectURL": "https://www.metmuseum.org/art/collection/search/436244",
   "tags": [
-      {
-          "term": "Madonna and Child",
-          "AAT_URL": "http://vocab.getty.edu/page/ia/901000052",
-          "Wikidata_URL": "https://www.wikidata.org/wiki/Q9309699"
-      },
-      {
-          "term": "Saint Anne",
-          "AAT_URL": "http://vocab.getty.edu/page/ia/901001010",
-          "Wikidata_URL": "https://www.wikidata.org/wiki/Q164294"
-      }
+    {
+      "term": "Madonna and Child",
+      "AAT_URL": "http://vocab.getty.edu/page/ia/901000052",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q9309699"
+    },
+    {
+      "term": "Saint Anne",
+      "AAT_URL": "http://vocab.getty.edu/page/ia/901001010",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q164294"
+    }
   ],
   "objectWikidata_URL": "https://www.wikidata.org/wiki/Q3948737",
   "isTimelineWork": true,

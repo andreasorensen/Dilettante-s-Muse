@@ -8,14 +8,14 @@
   "primaryImageSmall": "https://images.metmuseum.org/CRDImages/ep/web-large/DP353256.jpg",
   "additionalImages": [],
   "constituents": [
-      {
-          "constituentID": 108413,
-          "role": "Artist",
-          "name": "Johannes Vermeer",
-          "constituentULAN_URL": "http://vocab.getty.edu/page/ulan/500032927",
-          "constituentWikidata_URL": "https://www.wikidata.org/wiki/Q41264",
-          "gender": ""
-      }
+    {
+      "constituentID": 108413,
+      "role": "Artist",
+      "name": "Johannes Vermeer",
+      "constituentULAN_URL": "http://vocab.getty.edu/page/ulan/500032927",
+      "constituentWikidata_URL": "https://www.wikidata.org/wiki/Q41264",
+      "gender": ""
+    }
   ],
   "department": "European Paintings",
   "objectName": "Painting",
@@ -43,14 +43,14 @@
   "medium": "Oil on canvas",
   "dimensions": "17 1/2 x 15 3/4 in. (44.5 x 40 cm)",
   "measurements": [
-      {
-          "elementName": "Overall",
-          "elementDescription": null,
-          "elementMeasurements": {
-              "Height": 44.5,
-              "Width": 40
-          }
+    {
+      "elementName": "Overall",
+      "elementDescription": null,
+      "elementMeasurements": {
+        "Height": 44.5,
+        "Width": 40
       }
+    }
   ],
   "creditLine": "Gift of Mr. and Mrs. Charles Wrightsman, in memory of Theodore Rousseau Jr., 1979",
   "geographyType": "",
@@ -71,16 +71,16 @@
   "repository": "Metropolitan Museum of Art, New York, NY",
   "objectURL": "https://www.metmuseum.org/art/collection/search/437879",
   "tags": [
-      {
-          "term": "Portraits",
-          "AAT_URL": "http://vocab.getty.edu/page/aat/300015637",
-          "Wikidata_URL": "https://www.wikidata.org/wiki/Q134307"
-      },
-      {
-          "term": "Women",
-          "AAT_URL": "http://vocab.getty.edu/page/aat/300025943",
-          "Wikidata_URL": "https://www.wikidata.org/wiki/Q467"
-      }
+    {
+      "term": "Portraits",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300015637",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q134307"
+    },
+    {
+      "term": "Women",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300025943",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q467"
+    }
   ],
   "objectWikidata_URL": "https://www.wikidata.org/wiki/Q958088",
   "isTimelineWork": true,
