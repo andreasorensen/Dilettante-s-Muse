@@ -7,10 +7,6 @@ export interface ArtData {
   primaryImageSmall?: string
 }
 
-type Data = {
-  objectIDs: number[];
-};
-
 const cleanUpData = (data: ArtData) => {
   const { title, artistDisplayName, objectID, objectDate, primaryImage, primaryImageSmall } = data;
 

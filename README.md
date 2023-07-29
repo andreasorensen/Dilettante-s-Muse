@@ -4,7 +4,7 @@
 
 # Deployed Website
 
-[Dilettante's Muse](https://producthunt.com)
+[Dilettante's Muse](https://the-gypsy-den.vercel.app/)
 
 # Preview
 ![Dilettante's Muse](https://media.giphy.com/media/WZxwPatrWxCg62tU33/giphy.gif)
