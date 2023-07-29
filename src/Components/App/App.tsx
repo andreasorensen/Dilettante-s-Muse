@@ -7,6 +7,7 @@ import { cleanUpData, ArtData, getRandomIds } from "../../utils";
 import SavedPage from "../SavedPage/SavedPage";
 import NavBar from "../NavBar/NavBar";
 import { getArt, getIDs } from "../../apiCalls";
+import NotFoundPage from "../NotFoundPage/NotFoundPage";
 
 interface Ids {
   total: number;
@@ -21,15 +22,13 @@ function App() {
   const callApi = async () => {
     try {
       const ids: Ids = await getIDs();
-      console.log("ids:", ids);
-      const randomPieces: number[] = getRandomIds(ids);
-      console.log("randomPieces", randomPieces);
-      for (const id of randomPieces) {
+      const id: number = getRandomIds(ids);
         const data = await getArt(id);
         if (data.primaryImage && data.message !== "ObjectID not found") {
           const cleanData: any = cleanUpData(data);
           setPieces((prev) => [...prev, cleanData]);
-        }
+      } else {
+        callApi()
       }
     } catch (error: unknown) {
       if (error instanceof Error && error.message.includes("Server error")) {
@@ -37,7 +36,6 @@ function App() {
           "Sorry, we encountered a server error. Please try again later."
         );
       }
-      console.log(error);
     }
   };
 
@@ -86,6 +84,10 @@ function App() {
                 savePieces={savePieces}
               />
             }
+          />
+          <Route 
+            path="/*" 
+            element={<NotFoundPage />} 
           />
         </Routes>
       )}
