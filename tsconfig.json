@@ -24,6 +24,8 @@
     "src",
     "Components/FaveButton/FaveButton.tsx",
     "Components/NavBar/NavBar.tsx",
-    "Components/ArtCard/ArtCard.tsx"
-  ]
+    "Components/ArtCard/ArtCard.tsx",
+    "cypress"
+  ],
+  "types": ["cypress","cypress-xpath","node","mocha"],
 }
